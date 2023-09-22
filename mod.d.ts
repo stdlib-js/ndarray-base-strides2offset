@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2021 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,25 +16,29 @@
 * limitations under the License.
 */
 
-#ifndef STDLIB_NDARRAY_BASE_STRIDES2OFFSET_H
-#define STDLIB_NDARRAY_BASE_STRIDES2OFFSET_H
+// TypeScript Version: 4.1
 
-#include <stdint.h>
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-/*
-* If C++, prevent name mangling so that the compiler emits a binary file having undecorated names, thus mirroring the behavior of a C compiler.
-*/
-#ifdef __cplusplus
-extern "C" {
-#endif
+import { ArrayLike } from '@stdlib/types/array';
 
 /**
 * Returns the index offset which specifies the location of the first indexed value in a multidimensional array based on a stride array.
+*
+* @param shape - array shape
+* @param strides - stride array
+* @returns offset
+*
+* @example
+* var shape = [ 2, 3, 10 ];
+* var strides = [ 30, -10, 1 ];
+*
+* var offset = strides2offset( shape, strides );
+* // returns 20
 */
-int64_t stdlib_ndarray_strides2offset( int64_t ndims, int64_t *shape, int64_t *strides );
+declare function strides2offset( shape: ArrayLike<number>, strides: ArrayLike<number> ): number; // tslint-disable-line max-line-length
 
-#ifdef __cplusplus
-}
-#endif
 
-#endif // !STDLIB_NDARRAY_BASE_STRIDES2OFFSET_H
+// EXPORTS //
+
+export = strides2offset;
